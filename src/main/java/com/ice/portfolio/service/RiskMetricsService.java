@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.Clock;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Service layer that orchestrates risk metric calculations and portfolio operations.
@@ -35,6 +36,10 @@ public class RiskMetricsService {
         this.durationCalculator = durationCalculator;
         this.portfolioRiskCalculator = portfolioRiskCalculator;
         this.clock = clock;
+    }
+
+    public List<Portfolio> getAllPortfolios() {
+        return portfolioRepository.findAll();
     }
 
     public Portfolio createPortfolio(Portfolio portfolio) {

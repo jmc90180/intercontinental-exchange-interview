@@ -36,6 +36,15 @@ public class PortfolioController {
         this.riskMetricsService = riskMetricsService;
     }
 
+    @GetMapping
+    @Operation(summary = "List all portfolios", description = "Retrieve all portfolios in the system")
+    @ApiResponse(responseCode = "200", description = "List of portfolios")
+    public List<PortfolioResponse> listPortfolios() {
+        return riskMetricsService.getAllPortfolios().stream()
+                .map(BondMapper::toResponse)
+                .toList();
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Create a portfolio", description = "Load bonds from JSON and create a new portfolio")

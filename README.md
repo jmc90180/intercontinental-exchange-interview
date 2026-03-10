@@ -124,6 +124,26 @@ Load bonds from JSON and create a new portfolio.
 }
 ```
 
+### List All Portfolios
+
+```
+GET /api/v1/portfolios
+```
+
+Returns all portfolios. Useful for discovering portfolio IDs.
+
+**Response (200 OK):**
+```json
+[
+  {
+    "id": "32936dae-7b10-4cf9-b633-87ab091fe7dd",
+    "name": "US Treasury Portfolio",
+    "bondCount": 2,
+    "totalMarketValue": 2000.75
+  }
+]
+```
+
 ### Get Portfolio
 
 ```
@@ -213,6 +233,9 @@ All errors return a consistent JSON structure:
 ## Sample curl Commands
 
 ```bash
+# List all portfolios (discover portfolio IDs)
+curl http://localhost:8080/api/v1/portfolios
+
 # Create a portfolio from the sample file
 curl -X POST http://localhost:8080/api/v1/portfolios \
   -H "Content-Type: application/json" \

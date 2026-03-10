@@ -1,0 +1,8 @@
+target/
+.git/
+.idea/
+*.iml
+*.md
+*.pdf
+.claude/
+.dockerignore

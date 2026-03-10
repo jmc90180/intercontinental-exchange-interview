@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: bond-portfolio-risk-analyzer
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bond_portfolio
+    username: bond_user
+    password: bond_pass
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
